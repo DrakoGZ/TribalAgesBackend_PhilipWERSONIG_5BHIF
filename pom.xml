@@ -3,9 +3,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <packaging>pom</packaging>
-    <modules>
-        <module>TestProject</module>
-    </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -16,6 +13,16 @@
     <artifactId>tribalages</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>tribalages</name>
+
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>corp1</id>
+            <name>lokal Folder</name>
+            <url>file:///Users\Drako\Dropbox\Jahrgang 5\NVS\WeihnachtsSemester Projekt\Vorarbeit</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
 
     <properties>
         <java.version>13</java.version>

@@ -27,26 +27,51 @@ public class StateController extends AbstractController<StateDto>{
 
     private final StateService service;
 
+    /**
+     * calls the find all method of the appropriate service
+     *
+     * @return
+     */
     @Override
     List<StateDto> findAllDTO() {
         return service.findAll();
     }
 
+    /**
+     * calls the findbyIdentifier method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<StateDto> findByIdentifierDTO(String identifier) {
         return service.findModelByIdentifier(identifier);
     }
 
+    /**
+     * calls the save method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<StateDto> saveDTO(Optional<StateDto> optionaldto) {
         return service.save(optionaldto);
     }
 
+    /**
+     * calls the update method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<StateDto> updateDTO(Optional<StateDto> optionaldto) {
         return service.update(optionaldto);
     }
 
+    /**
+     * calls the deleteByIdentifier method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<StateDto> deleteByIdentifierDTO(String identifier) {
         Optional<StateDto> optionaldto = service.findModelByIdentifier(identifier);
@@ -54,6 +79,13 @@ public class StateController extends AbstractController<StateDto>{
         return optionaldto;
     }
 
+    /**
+     * depending on if it is a new or old saveState, it either overrides the existing one or updates it by calling the
+     * regarding service methods
+     *
+     * @param dto
+     * @return
+     */
     @PostMapping(path="/saveState", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
     public ResponseEntity<StateDto> update(
             @RequestBody StateDto dto) {
@@ -79,6 +111,11 @@ public class StateController extends AbstractController<StateDto>{
         }
     }
 
+    /**
+     * Get Route to allways returns the first save state that's in the table
+     *
+     * @return
+     */
     @GetMapping(path="/getSavedState")
     public ResponseEntity<StateDto> getSavedState()
     {
@@ -103,6 +140,11 @@ public class StateController extends AbstractController<StateDto>{
         );
     }
 
+    /**
+     * Route to get a new StartState
+     *
+     * @return
+     */
     @GetMapping(path="/getStartState")
     public ResponseEntity<StateDto> getStartState()
     {
@@ -119,6 +161,11 @@ public class StateController extends AbstractController<StateDto>{
         );
     }
 
+    /**
+     *
+     * Generates a new Start State with basic values
+     * @return
+     */
     private StateDto generateNewState(){
         ArrayList<RessourceDto> al = new ArrayList<RessourceDto>();
         al.add(

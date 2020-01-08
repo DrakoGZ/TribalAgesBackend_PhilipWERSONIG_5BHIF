@@ -23,31 +23,57 @@ public class RessourcesService
 
     private final RessourcesRepo ressourcesRepo;
 
+    /**
+     * Convert a given Model into a respective DTO
+     * @param model
+     * @return
+     */
     @Override
     RessourcesDto convertModelIntoDTO(Ressources model) {
         return new RessourcesDto(model);
     }
 
+    /**
+     * Convert a given DTO into a respective Model
+     * @param dto
+     * @return
+     */
     @Override
     Ressources convertDTOIntoModel(RessourcesDto dto) {
         return new Ressources(dto);
     }
 
+    /**
+     * Calls the find all method of the respective repo
+     * @return
+     */
     @Override
     List<Ressources> findall() {
         return ressourcesRepo.findAll();
     }
 
+    /**
+     * Calls the save method of the respective repo
+     * @return
+     */
     @Override
     Ressources saveRep(Ressources model) {
         return ressourcesRepo.save(model);
     }
 
+    /**
+     * Calls the find by Identifier method of the respective repo
+     * @return
+     */
     @Override
     Optional<Ressources> findByIdentifier(String identifier) {
         return ressourcesRepo.findByIdentifier(identifier);
     }
 
+    /**
+     * Calls the delete by identifier method of the respective repo
+     * @return
+     */
     @Override
     void deleteByIdentifier(String identifier) {
         ressourcesRepo.deleteByIdentifier(identifier);

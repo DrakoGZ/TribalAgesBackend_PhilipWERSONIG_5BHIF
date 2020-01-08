@@ -19,26 +19,51 @@ import java.util.Optional;
 public class EventController extends AbstractController<EventDto>{
     private final EventService service;
 
+    /**
+     * calls the find all method of the appropriate service
+     *
+     * @return
+     */
     @Override
     List<EventDto> findAllDTO() {
         return service.findAll();
     }
 
+    /**
+     * calls the findbyIdentifier method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<EventDto> findByIdentifierDTO(String identifier) {
         return service.findModelByIdentifier(identifier);
     }
 
+    /**
+     * calls the save method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<EventDto> saveDTO(Optional<EventDto> optionaldto) {
         return service.save(optionaldto);
     }
 
+    /**
+     * calls the update method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<EventDto> updateDTO(Optional<EventDto> optionaldto) {
         return service.update(optionaldto);
     }
 
+    /**
+     * calls the deleteByIdentifier method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<EventDto> deleteByIdentifierDTO(String identifier) {
         Optional<EventDto> optionaldto = service.findModelByIdentifier(identifier);

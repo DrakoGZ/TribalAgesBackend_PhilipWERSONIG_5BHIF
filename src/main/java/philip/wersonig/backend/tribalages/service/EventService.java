@@ -19,31 +19,57 @@ public class EventService
 
     private final EventRepo eventRepo;
 
+    /**
+     * Convert a given Model into a respective DTO
+     * @param model
+     * @return
+     */
     @Override
     EventDto convertModelIntoDTO(Event model) {
         return new EventDto(model);
     }
 
+    /**
+     * Convert a given DTO into a respective Model
+     * @param dto
+     * @return
+     */
     @Override
     Event convertDTOIntoModel(EventDto dto) {
         return new Event(dto);
     }
 
+    /**
+     * Calls the find all method of the respective repo
+     * @return
+     */
     @Override
     List<Event> findall() {
         return eventRepo.findAll();
     }
 
+    /**
+     * Calls the save method of the respective repo
+     * @return
+     */
     @Override
     Event saveRep(Event model) {
         return eventRepo.save(model);
     }
 
+    /**
+     * Calls the find by Identifier method of the respective repo
+     * @return
+     */
     @Override
     Optional<Event> findByIdentifier(String identifier) {
         return eventRepo.findByIdentifier(identifier);
     }
 
+    /**
+     * Calls the delete by identifier method of the respective repo
+     * @return
+     */
     @Override
     void deleteByIdentifier(String identifier) {
         eventRepo.deleteByIdentifier(identifier);

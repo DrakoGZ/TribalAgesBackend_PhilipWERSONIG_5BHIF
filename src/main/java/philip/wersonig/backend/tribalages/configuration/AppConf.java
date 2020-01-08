@@ -9,6 +9,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 public class AppConf implements WebMvcConfigurer{
 
+    /**
+     * This Configuration Method Adds the Settings for how what and when CORS Messages should be allowed
+     *
+     * @param registry
+     */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**")

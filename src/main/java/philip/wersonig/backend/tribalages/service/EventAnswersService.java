@@ -19,31 +19,57 @@ public class EventAnswersService
 
     private final EventAnswersRepo eventAnswersRepo;
 
+    /**
+     * Convert a given Model into a respective DTO
+     * @param model
+     * @return
+     */
     @Override
     EventAnswersDto convertModelIntoDTO(Eventanswers model) {
         return new EventAnswersDto(model);
     }
 
+    /**
+     * Convert a given DTO into a respective Model
+     * @param dto
+     * @return
+     */
     @Override
     Eventanswers convertDTOIntoModel(EventAnswersDto dto) {
         return new Eventanswers(dto);
     }
 
+    /**
+     * Calls the find all method of the respective repo
+     * @return
+     */
     @Override
     List<Eventanswers> findall() {
         return eventAnswersRepo.findAll();
     }
 
+    /**
+     * Calls the save method of the respective repo
+     * @return
+     */
     @Override
     Eventanswers saveRep(Eventanswers model) {
         return eventAnswersRepo.save(model);
     }
 
+    /**
+     * Calls the find by Identifier method of the respective repo
+     * @return
+     */
     @Override
     Optional<Eventanswers> findByIdentifier(String identifier) {
         return eventAnswersRepo.findByIdentifier(identifier);
     }
 
+    /**
+     * Calls the delete by identifier method of the respective repo
+     * @return
+     */
     @Override
     void deleteByIdentifier(String identifier) {
         eventAnswersRepo.deleteByIdentifier(identifier);

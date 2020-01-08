@@ -20,26 +20,51 @@ public class RessourcesController extends AbstractController<RessourcesDto>{
     private final RessourcesService service;
 
 
+    /**
+     * calls the find all method of the appropriate service
+     *
+     * @return
+     */
     @Override
     List<RessourcesDto> findAllDTO() {
         return service.findAll();
     }
 
+    /**
+     * calls the findbyIdentifier method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<RessourcesDto> findByIdentifierDTO(String identifier) {
         return service.findModelByIdentifier(identifier);
     }
 
+    /**
+     * calls the save method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<RessourcesDto> saveDTO(Optional<RessourcesDto> optionaldto) {
         return service.save(optionaldto);
     }
 
+    /**
+     * calls the update method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<RessourcesDto> updateDTO(Optional<RessourcesDto> optionaldto) {
         return service.update(optionaldto);
     }
 
+    /**
+     * calls the deleteByIdentifier method of the appropriate service
+     *
+     * @return
+     */
     @Override
     Optional<RessourcesDto> deleteByIdentifierDTO(String identifier) {
         Optional<RessourcesDto> optionaldto = service.findModelByIdentifier(identifier);
